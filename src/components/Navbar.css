@@ -13,7 +13,7 @@
 }
 
 .navbar__inner {
-    max-width: 1140px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 32px;
     display: flex;
@@ -70,6 +70,14 @@
 }
 
 .navbar__links a:hover::after {
+    width: 100%;
+}
+
+.navbar__links a.active {
+    color: #0f172a;
+}
+
+.navbar__links a.active::after {
     width: 100%;
 }
 

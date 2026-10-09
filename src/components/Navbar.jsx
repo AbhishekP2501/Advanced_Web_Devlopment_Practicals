@@ -1,10 +1,16 @@
 import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 
 const links = [
-    { label: "About", href: "#about" },
-    { label: "Skills", href: "#skills" },
-    { label: "Contact", href: "#footer" },
+    { label: "About", href: "/about" },
+    { label: "Skills", href: "/skills" },
+    { label: "Education", href: "/education" },
+    { label: "Internship", href: "/internship" },
+    { label: "Projects", href: "/projects" },
+    { label: "Task Manager", href: "/tasks" },
+    { label: "Certifications", href: "/certifications" },
+    { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -20,19 +26,19 @@ export default function Navbar() {
     return (
         <nav className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
             <div className="navbar__inner">
-                <a href="#top" className="navbar__brand">
+                <NavLink to="/" className="navbar__brand">
                     Abhishek <span className="navbar__brand-accent">Pitroda</span>
-                </a>
+                </NavLink>
 
                 <ul className="navbar__links">
                     {links.map((link) => (
                         <li key={link.href}>
-                            <a href={link.href}>{link.label}</a>
+                            <NavLink to={link.href} className={({ isActive }) => isActive ? "active" : undefined}>{link.label}</NavLink>
                         </li>
                     ))}
                 </ul>
 
-                <a href="#footer" className="navbar__cta">Let's talk</a>
+                <NavLink to="/contact" className="navbar__cta">Let's talk</NavLink>
 
                 <button
                     className="navbar__toggle"
@@ -49,7 +55,7 @@ export default function Navbar() {
                 <ul className="navbar__mobile">
                     {links.map((link) => (
                         <li key={link.href}>
-                            <a href={link.href} onClick={() => setOpen(false)}>{link.label}</a>
+                            <NavLink to={link.href} onClick={() => setOpen(false)} className={({ isActive }) => isActive ? "active" : undefined}>{link.label}</NavLink>
                         </li>
                     ))}
                 </ul>

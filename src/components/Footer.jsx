@@ -1,7 +1,7 @@
 const socials = [
-    { label: "Email", href: "mailto:abhishekpitroda@example.com" },
+    { label: "Email", href: "mailto:aabhishekpitroda@gmail.com" },
     { label: "GitHub", href: "https://github.com/AbhishekP2501" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/abhishek-pitroda-2a409140b?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/abhishek-pitroda-9437a6347" },
 ];
 
 export default function Footer() {

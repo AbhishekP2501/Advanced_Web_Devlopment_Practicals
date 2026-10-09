@@ -1,15 +1,31 @@
 const skills = [
     {
-        name: "HTML5",
-        detail: "Semantic markup and page structure",
+        name: "Languages",
+        detail: "C, C++, JavaScript, Python",
     },
     {
-        name: "CSS3",
-        detail: "Styling, layouts, Flexbox, responsive design",
+        name: "Frontend",
+        detail: "HTML, CSS, React.js",
     },
     {
-        name: "JavaScript",
-        detail: "Interactive web functionality and DOM manipulation",
+        name: "Backend",
+        detail: "Node.js, Express.js, REST APIs",
+      },
+      {
+        name: "Databases",
+        detail: "MongoDB, PostgreSQL, MySQL",
+      },
+      {
+        name: "Developer Tools",
+        detail: "Git, GitHub, VS Code",
+      },
+      {
+        name: "Core Concepts",
+        detail: "Data Structures and Algorithms, DBMS, CRUD Operations",
+      },
+      {
+        name: "Soft Skills",
+        detail: "Problem Solving, Time Management, Adaptability, Critical Thinking, Teamwork",
     },
 ];
 
@@ -17,7 +33,7 @@ export default function Skills() {
     return (
         <section id="skills" className="skills">
             <style>{`
-        .skills { padding: 92px 0; border-bottom: 1px solid #e2e8f0; background: #f8fafc; }
+        .skills { padding: 48px 0 92px; border-bottom: 1px solid #e2e8f0; background: #f8fafc; }
         .skills__container { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
         .skills__eyebrow {
           font-size: 13px;
@@ -88,7 +104,7 @@ export default function Skills() {
             <div className="skills__container">
                 <p className="skills__eyebrow">Skills</p>
                 <h2 className="skills__heading">Technical Skills</h2>
-                <p className="skills__sub">The core front-end fundamentals I work with.</p>
+                <p className="skills__sub">Technologies and strengths I bring to full-stack web development.</p>
 
                 <div className="skills__grid">
                     {skills.map((skill, i) => (

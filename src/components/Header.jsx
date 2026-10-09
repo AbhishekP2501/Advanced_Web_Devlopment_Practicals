@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Header() {
     return (
         <header id="top" className="hero">
@@ -89,20 +91,19 @@ export default function Header() {
 
                 <h1 className="hero__title">
                     Hi, I'm Abhishek Pitroda —
-                    <span className="hero__title-accent"> a Web Developer</span> building
+                    <span className="hero__title-accent"> a Full Stack Web Developer</span> building
                     clean, responsive interfaces.
                 </h1>
 
                 <p className="hero__lead">
-                    Motivated Computer Engineering student with hands-on front-end
-                    skills in HTML, CSS, and JavaScript, backed by a Microsoft UI/UX
-                    Design certification. Eager to contribute to real-world web
-                    projects and grow as a developer.
+                    Full Stack Web Developer and Computer Engineering student building
+                    clean, responsive web applications with modern frontend and backend
+                    technologies.
                 </p>
 
                 <div className="hero__actions">
-                    <a href="#skills" className="hero__btn hero__btn--primary">View my skills</a>
-                    <a href="#footer" className="hero__btn hero__btn--ghost">Get in touch</a>
+                    <Link to="/skills" className="hero__btn hero__btn--primary">View my skills</Link>
+                    <Link to="/contact" className="hero__btn hero__btn--ghost">Get in touch</Link>
                 </div>
             </div>
         </header>

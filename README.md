@@ -1,16 +1,81 @@
-# React + Vite
+# Task Manager API
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Express and Mongoose REST API for managing tasks in MongoDB.
 
-Currently, two official plugins are available:
+## Run the API
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. Ensure MongoDB is running locally, or set `MONGO_URI` in `.env` to a MongoDB Atlas connection string.
+2. Install dependencies:
 
-## React Compiler
+```bash
+npm install
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+3. Start the server:
 
-## Expanding the ESLint configuration
+```bash
+npm run server
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The API runs at `http://localhost:5000`.
+
+Set `JWT_SECRET` in `.env` to a long private value. The included development value is only for local testing.
+
+## Authentication
+
+Register a user:
+
+```http
+POST /register
+Content-Type: application/json
+```
+
+```json
+{
+  "email": "user@example.com",
+  "password": "secret123"
+}
+```
+
+Log in with the same credentials:
+
+```http
+POST /login
+Content-Type: application/json
+```
+
+The response contains a JWT valid for one hour. Send it with every task request:
+
+```http
+Authorization: Bearer <token>
+```
+
+## Task schema
+
+- `title`: String, required
+- `description`: String, defaults to an empty string
+- `completed`: Boolean, defaults to `false`
+- `createdAt`: Date, defaults to the current time
+
+## Endpoints
+
+| Method | URL | Success status |
+| --- | --- | --- |
+| GET | `/tasks` | 200 |
+| POST | `/tasks` | 201 |
+| PUT | `/tasks/:id` | 200 |
+| DELETE | `/tasks/:id` | 200 |
+
+All task routes require a valid JWT. Requests without a token return `401`.
+
+Create a task with `POST /tasks` and this JSON body:
+
+```json
+{
+  "title": "Complete assignment",
+  "description": "Build and test the API",
+  "completed": false
+}
+```
+
+Missing task IDs return `404`. Validation failures return structured JSON with status `400`. Unexpected errors return `{ "error": "Something went wrong." }` with status `500`. Request method, URL, and timestamp are logged globally.
