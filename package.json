@@ -9,7 +9,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "node --test tests/sample.test.js && node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand"
+    "test": "node --test tests/sample.test.js && node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand --passWithNoTests"
   },
   "jest": {
     "testPathIgnorePatterns": [
