@@ -9,7 +9,12 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "node --test tests/sample.test.js && node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand --testPathIgnorePatterns=tests"
+    "test": "node --test tests/sample.test.js && node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "<rootDir>/tests/"
+    ]
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
